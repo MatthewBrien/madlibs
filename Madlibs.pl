@@ -1,10 +1,11 @@
 #!usr/local/bin/perl
 use strict;
-#use warnings;
-print("Hello Madlibs\n");
+use warnings;
+print("Hello Madlibs\n\n");
 my $date = time();
-#uncomment next line for unique names otherwise, use the line after next
-#my $output_file = "madlib$date.txt";
+
+#build name of output file
+my $output_file = "Dating_Profile_$date.txt";
 my $output_file = "mad.txt";
 unless(open OUTPUT, ">$output_file") {
         print( "\nUnable to create '$output_file'\n");
@@ -13,7 +14,7 @@ unless(open OUTPUT, ">$output_file") {
   #idea, have a header value at the top, that flags if a madlib is complete or not
   #idea two, never save over the original file, always write to a new one.
   #TODO allow user to pass a template file to the program
-my $file = 'madtemplate.txt';
+my $file = 'Dating_Profile_Madlib.txt';
 unless (open MADLIB, "<$file"){
   close OUTPUT;
   print("Unable to open file, are you sure you are in the correct directory?\n");
@@ -40,7 +41,7 @@ my $i =0;
     }
     print OUTPUT $line;
     }
-print "MAdlib complete! $i words replaced \n";
+print "Madlib complete! $i words replaced \n";
 #TODO don't save until completion
   close MADLIB;
   close OUTPUT;
